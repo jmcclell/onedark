@@ -37,10 +37,6 @@ ONEDARK[dark_purple]="#7e3992"
 # [ ] git section bg green when good, yellow/orange when dirty
 # ✘
 
-#PROMPT="╭─%{%F{$ONEDARK[bg]}%K{$ONEDARK[fg]}}%%{reset_color%}{%F{$ONEDARK[cyan]}%}%n%{$reset_color%} %{$FG[239]%}in%{$reset_color%} %{$terminfo[bold]%F{$ONEDARK[pink]}%}%~%{$reset_color%}\$(ruby_prompt_info) %D - %*
-#╰─\$(gmit_prompt_info)\$(prompt_char) "
-
-
 local section_start="╭─ "
 local section_username="%n %K{$ONEDARK[blue]%}%F{$ONEDARK[bg]%}"
 local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$ONEDARK[blue]%}%{$reset_color%} "
