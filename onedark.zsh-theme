@@ -42,7 +42,7 @@ local section_username="%n %K{$ONEDARK[blue]%}%F{$ONEDARK[bg]%}"
 local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$ONEDARK[blue]%}%{$reset_color%} "
 local nextline="
 ╰─o "
-local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}%"
+local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
 
 
 PROMPT="${section_start}${section_username}${section_path}${nextline}${section_end}"
