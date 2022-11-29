@@ -37,9 +37,12 @@ ONEDARK[dark_purple]="#7e3992"
 # [ ] git section bg green when good, yellow/orange when dirty
 # ✘
 
+pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"${ONEDARK[blue]}"}"
+
+
 local section_start="╭─ "
-local section_username="%n %K{$ONEDARK[blue]%}%F{$ONEDARK[bg]%}"
-local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$ONEDARK[blue]%}%{$reset_color%} "
+local section_username="%n %K{$pcolor%}%F{$ONEDARK[bg]%}"
+local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$pcolor%}%{$reset_color%} "
 local nextline="
 ╰─o "
 local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
