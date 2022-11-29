@@ -38,9 +38,12 @@ ONEDARK[dark_purple]="#7e3992"
 # ✘
 
 pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"${ONEDARK[blue]}"}"
+icon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
+icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
 
 
-local section_start="╭─ "
+local section_start="╭─"
+local section_icon="%F{$icon_color%} $icon %{$reset_color%}"
 local section_username="%n %K{$pcolor%}%F{$ONEDARK[bg]%}"
 local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$pcolor%}%{$reset_color%} "
 local nextline="
@@ -48,7 +51,7 @@ local nextline="
 local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
 
 
-PROMPT="${section_start}${section_username}${section_path}${nextline}${section_end}"
+PROMPT="${section_start}${section_icon}${section_username}${section_path}${nextline}${section_end}"
 
 #ZSH_THEME_GIT_PROMPT_PREFIX="%K{$ONEDARK[green]%}%F{$ONEDARK[bg]%} "
 ZSH_THEME_GIT_PROMPT_PREFIX="["
