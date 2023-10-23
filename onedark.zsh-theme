@@ -36,6 +36,8 @@ ONEDARK[dark_purple]="#7e3992"
 # [ ] show full path on top line
 # [ ] git section bg green when good, yellow/orange when dirty
 # ✘
+ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="("
+ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=") "
 
 pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"${ONEDARK[blue]}"}"
 icon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
@@ -50,8 +52,7 @@ local nextline="
 ╰─o "
 local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
 
-
-PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}${section_end}'
+PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
 #ZSH_THEME_GIT_PROMPT_PREFIX="%K{$ONEDARK[green]%}%F{$ONEDARK[bg]%} "
 ZSH_THEME_GIT_PROMPT_PREFIX="["
