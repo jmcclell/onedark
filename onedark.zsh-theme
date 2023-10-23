@@ -51,7 +51,7 @@ local nextline="
 local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
 
 
-PROMPT="${section_start}${section_icon}${section_username}${section_path}${nextline}${section_end}"
+PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}${section_end}'
 
 #ZSH_THEME_GIT_PROMPT_PREFIX="%K{$ONEDARK[green]%}%F{$ONEDARK[bg]%} "
 ZSH_THEME_GIT_PROMPT_PREFIX="["
