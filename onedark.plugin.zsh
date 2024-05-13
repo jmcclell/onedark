@@ -1,3 +1,5 @@
-fpath+="${0:A:h}/completions"
+cpath="${0:A:h}/completions"
+fpath+="$cpath"
 [[ -d "$cpath" ]] || mkdir -p "$cpath"
-[[ $commands[pdm] ]] && pdm completion zsh > "${0:A:h}/completions/_pdm"
+[[ $commands[pdm] ]] && pdm completion zsh > "$cpath/_pdm"
+unset cpath
