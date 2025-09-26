@@ -29,17 +29,15 @@ local section_end="%K{0}%F{1}"
 
 PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
-#ZSH_THEME_GIT_PROMPT_PREFIX="%K{green}%F{bg} "
-ZSH_THEME_GIT_PROMPT_PREFIX="["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
-ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[red]%}%{●%G%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="%K{$pcolor%}%F{0} "
+ZSH_THEME_GIT_PROMPT_BRANCH="󰊢 "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=" %K{$reset_color%}%F{$pcolor%}%F{$reset_color%}  "
+ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[blue]%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✖%G%}"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚%G%}"
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[yellow]%}%{✚%G%}"
 ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%}%{…%G%}"
 ZSH_THEME_GIT_PROMPT_STASHED="%{$fg_bold[blue]%}%{⚑%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
-
+ZSH_THEME_GIT_PROMPT_SUFFIX="%K{$pcolor%} %K{$reset_color%}%F{$pcolor%}%F{$reset_color%}"
