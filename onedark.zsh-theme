@@ -30,7 +30,7 @@ local section_end="%K{0}%F{1}"
 PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%K{$pcolor%}%F{0}>"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{󰊢%G%}"
+ZSH_THEME_GIT_PROMPT_BRANCH="󰊢 > "
 ZSH_THEME_GIT_PROMPT_SEPARATOR="%{|%G%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{✖%G%}"
