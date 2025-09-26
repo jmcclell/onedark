@@ -20,12 +20,12 @@ local icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
 
 
 local section_start="╭─"
-local section_icon="%F{$icon_color} $icon %{$reset_color}"
-local section_username="%n %K{$pcolor}%F{bg}"
-local section_path=" %~ %K{$reset_color}%F{$pcolor}%{$reset_color} "
+local section_icon="%F{$icon_color%} $icon %{$reset_color%}"
+local section_username="%n %K{$pcolor%}%F{bg%}"
+local section_path=" %~ %K{$reset_color%}%F{$pcolor%}%{$reset_color%} "
 local nextline="
 ╰─o "
-local section_end="%K{bg}%F{fg}"
+local section_end="%K{bg%}%F{fg%}"
 
 PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
