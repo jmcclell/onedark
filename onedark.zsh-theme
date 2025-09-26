@@ -1,32 +1,7 @@
 # onedark prompt
 
-declare -gA ONEDARK
-
-ONEDARK[black]="#0e1013"
-ONEDARK[bg0]="#1f2329"
-ONEDARK[bg1]="#282c34"
-ONEDARK[bg2]="#30363f"
-ONEDARK[bg3]="#323641"
-ONEDARK[bg4]="#181b20"
-ONEDARK[bg]="#21252b"
-ONEDARK[bg_blue]="#61afef"
-ONEDARK[bg_yellow]="#e8c88c"
-ONEDARK[fg]="#abb2bf" # "#a0a8b7"
-ONEDARK[purple]="#bf68d9"
-ONEDARK[green]="#8ebd6b"
-ONEDARK[orange]="#cc9057"
-ONEDARK[blue]="#4fa6ed"
-ONEDARK[yellow]="#e2b86b"
-ONEDARK[cyan]="#48b0bd"
-ONEDARK[red]="#e55561"
-ONEDARK[grey]="#535965"
-ONEDARK[light_grey]="#7a818e"
-ONEDARK[dark_cyan]="#266269"
-ONEDARK[dark_red]="#8b3434"
-ONEDARK[dark_yellow]="#835d1a"
-ONEDARK[dark_purple]="#7e3992"
-
-
+# Update: no longer sets colors but will use whatever colors the terminal
+# has configured.
 
 # %K{black} %F{%(!.yellow.default)}jason@%m %S%F{cyan}%K{black}%k ~/d/s/j/jparse %s%S%F{yellow}%K{cyan}%k  master ± %s%k%F{yellow}%f
 
@@ -39,22 +14,22 @@ ONEDARK[dark_purple]="#7e3992"
 ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="("
 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=") "
 
-pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"${ONEDARK[blue]}"}"
-icon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
-icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
+local pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"blue"}"
+local icon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
+local icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
 
 
 local section_start="╭─"
-local section_icon="%F{$icon_color%} $icon %{$reset_color%}"
-local section_username="%n %K{$pcolor%}%F{$ONEDARK[bg]%}"
-local section_path="%F{$ONEDARK[bg]%} %~ %{$reset_color%}%F{$pcolor%}%{$reset_color%} "
+local section_icon="%F{$icon_color} $icon %{$reset_color%}"
+local section_username="%n %K{$pcolor}%F{0}"
+local section_path="%F{0} %~ %{$reset_color%}%F{$pcolor%}%{$reset_color%} "
 local nextline="
 ╰─o "
-local section_end="%K{$ONEDARK[bg]%}%F{$ONEDARK[fg]%}"
+local section_end="%K{bg}%F{fg}"
 
 PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
-#ZSH_THEME_GIT_PROMPT_PREFIX="%K{$ONEDARK[green]%}%F{$ONEDARK[bg]%} "
+#ZSH_THEME_GIT_PROMPT_PREFIX="%K{green}%F{bg} "
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
