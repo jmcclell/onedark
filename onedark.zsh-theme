@@ -21,7 +21,7 @@ local icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
 
 local section_start="╭─"
 local section_icon="%F{$icon_color} $icon %{$reset_color%}"
-local section_username="%n %K{bg}"
+local section_username="%n %F{bg}"
 local section_path="%F{0} %~ %{$reset_color%}%F{$pcolor%}%{$reset_color%} "
 local nextline="
 ╰─o "
