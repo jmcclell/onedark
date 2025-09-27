@@ -11,33 +11,44 @@
 # [ ] show full path on top line
 # [ ] git section bg green when good, yellow/orange when dirty
 # ✘
+
 ZSH_THEME_VIRTUAL_ENV_PROMPT_PREFIX="("
 ZSH_THEME_VIRTUAL_ENV_PROMPT_SUFFIX=") "
 
-local pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"blue"}"
-local icon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
-local icon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
+shell_context=""
+if [[ -n "${DEVBOX_SHELL_ENABLED}" ]]; then
+  shell_context="devbox"
+fi
+
+pcolor="${ZSH_THEME_ONEDARK_PROMPT_COLOR:-"blue"}"
+picon="${ZSH_THEME_ONEDARK_PROMPT_ICON:-" "}"
+picon_color="${ZSH_THEME_ONEDARK_PROMPT_ICON_COLOR:-"${pcolor}"}"
 
 
-local section_start="╭─"
-local section_icon="%F{$icon_color%} $icon %{$reset_color%}"
+local section_start="%F{$pcolor%}╭─"
+local section_context=""
+if [[ -n "${shell_context}" ]]; then
+    section_context="%F{$pcolor%}[${shell_context}]"
+fi
+local section_icon="%F{$picon_color%} $picon %{$reset_color%}"
 local section_username="%n %K{$pcolor%}%F{0}"
 local section_path=" %~ %K{$reset_color%}%F{$pcolor%}%K{$reset_color%} "
-local nextline="
+local nextline="%F{$pcolor%}
 ╰─o "
 local section_end="%K{0}%F{1}"
 
-PROMPT='${section_start}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
+PROMPT='${section_start}${section_context}${section_icon}${section_username}${section_path}${nextline}$(virtualenv_prompt_info)${section_end}'
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%F{$pcolor%}%{󰊢 %G%}%K{$pcolor%}%F{0}"
-ZSH_THEME_GIT_PROMPT_BRANCH=" "
+ZSH_THEME_GIT_PROMPT_PREFIX="%F{$pcolor%}%{󰊢 %G%}%K{$pcolor%}%F{0} "
+ZSH_THEME_GIT_PROMPT_BRANCH="%F{0}%K{$pcolor%}"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="%K{$pcolor%}%F{0}|"
-ZSH_THEME_GIT_PROMPT_STAGED="%{●%G%}"
-ZSH_THEME_GIT_PROMPT_CONFLICTS="%{✖%G%}"
-ZSH_THEME_GIT_PROMPT_CHANGED="%{✚%G%}"
-ZSH_THEME_GIT_PROMPT_BEHIND="%{↓%G%}"
-ZSH_THEME_GIT_PROMPT_AHEAD="%{↑%G%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
-ZSH_THEME_GIT_PROMPT_STASHED="%{⚑"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{✔%G%}"
-ZSH_THEME_GIT_PROMPT_SUFFIX="%K{$reset_color%}%F{$pcolor%}%F{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_STAGED="%B%F{0}%K{$pcolor%}%{●%G%}%b"
+ZSH_THEME_GIT_PROMPT_CONFLICTS="%B%F{0}%K{$pcolor%}%{✖%G%}%b"
+ZSH_THEME_GIT_PROMPT_CHANGED="%B%F{0}%K{$pcolor%}%{✚%G%}%b"
+ZSH_THEME_GIT_PROMPT_BEHIND="%B%F{0}%K{$pcolor%}%{↓%G%}%b"
+ZSH_THEME_GIT_PROMPT_AHEAD="%B%F{0}%K{$pcolor%}%{↑%G%}%b"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%B%F{0}%K{$pcolor%}%{…%G%}%b"
+ZSH_THEME_GIT_PROMPT_STASHED="%%BF{0}%K{$pcolor%}%{⚑%G%}%b"
+ZSH_THEME_GIT_PROMPT_DELETED="%B%F{0}%K{$pcolor%}-%b"
+ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{0}%K{$pcolor%}%{✔%G%}%b"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%F{0}%K{$pcolor%} %K{$reset_color%}%F{$pcolor%}%F{$reset_color%}"
